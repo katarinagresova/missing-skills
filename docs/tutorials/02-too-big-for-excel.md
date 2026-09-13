@@ -98,7 +98,7 @@ moment.
 === "Windows (Git Bash)"
 
     Git Bash doesn't include `unzip`. Use Python instead — you already have it from
-    tutorial 1:
+    [tutorial 1](01-personal-website.md#5-working-on-your-own-computer):
 
     ```bash
     python -m zipfile -e gwas-catalog-associations-split.zip .
@@ -800,7 +800,7 @@ bash summarise.sh
 
 ### Commit and push
 
-The loop from tutorial 1, unchanged:
+The loop from [tutorial 1](01-personal-website.md#4-the-git-loop), unchanged:
 
 ```bash
 git status
@@ -822,7 +822,8 @@ website, this one shows you can handle data.
 
 !!! tip "Link it from your website"
 
-    You built a Projects section in [tutorial 1](01-personal-website.md). Add this to it:
+    You built a Projects section in
+    [tutorial 1](01-personal-website.md#6-build-the-actual-page). Add this to it:
 
     ```html
     <li>
@@ -992,7 +993,7 @@ website, this one shows you can handle data.
 
     Then fix `.gitignore`, run `git rm -r --cached data`, and commit again. Check with
     `git status` before pushing. Undoing things properly is
-    [tutorial 3](03-redesign-without-fear.md).
+    [tutorial 3](03-redesign-without-fear.md#5-five-ways-to-undo).
 
 ---
 

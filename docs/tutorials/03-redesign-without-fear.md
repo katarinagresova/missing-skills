@@ -46,7 +46,7 @@ The live site stays up the whole time.
 ## 2. Read your own history
 
 You can't undo what you can't see. So before anything else, look at what git has been
-quietly recording since tutorial 1.
+quietly recording since [tutorial 1](01-personal-website.md#4-the-git-loop).
 
 Open a terminal, go to your site's folder, and start the preview server — you'll want it
 running for the rest of this tutorial:
@@ -127,9 +127,10 @@ e91d3f8 Change the heading
 ```
 
 One line per commit: a short **hash** and your message. This is the moment those commit
-messages from tutorial 1 either pay off or don't. `"Add education section"` tells you
-something. `"update"` tells you nothing, and you're reading this list precisely because
-something is wrong and you need to find when.
+messages from [tutorial 1](01-personal-website.md#5-working-on-your-own-computer) either
+pay off or don't. `"Add education section"` tells you something. `"update"` tells you
+nothing, and you're reading this list precisely because something is wrong and you need to
+find when.
 
 ### Hashes are how you name a commit
 
@@ -286,9 +287,10 @@ either direction.
     Look at your real site at `https://your-username.github.io` right now. Two columns?
     No.
 
-    In tutorial 1 you set GitHub Pages to deploy from the `main` branch. **Pages publishes
-    `main` and ignores everything else.** You could push `try-two-columns` to GitHub this
-    minute and the world would still see the old page.
+    In [tutorial 1](01-personal-website.md#3-get-something-live) you set GitHub Pages to
+    deploy from the `main` branch. **Pages publishes `main` and ignores everything
+    else.** You could push `try-two-columns` to GitHub this minute and the world would
+    still see the old page.
 
     That is the property that makes the rest of this tutorial safe: you have somewhere to
     be wrong that the internet cannot see.
@@ -695,7 +697,8 @@ the second throws away the edit to the file itself. Refresh — normal text.
     `reset` rewrites your history — it makes commits stop existing. That's fine while
     they're only on your laptop. Once a commit is on GitHub, other people and other
     machines may have it, and rewriting history underneath them causes the confusing
-    rejected-push errors you may already have hit in tutorial 1.
+    rejected-push errors you may already have hit in
+    [tutorial 1](01-personal-website.md#7-when-things-go-wrong).
 
     For anything already pushed, use `revert` instead. That's next.
 
@@ -969,9 +972,9 @@ Your history now shows both lines of work joined back together.
     ```
 
     No output means you're clean. That's `grep` from
-    [tutorial 2](02-too-big-for-excel.md#6-grep), with one
-    flag it didn't cover: `-r` searches every file in the folder and below it, rather than
-    one file you name. The `.` is that folder — here, your whole site.
+    [tutorial 2](02-too-big-for-excel.md#6-grep), with one flag it didn't cover: `-r`
+    searches every file in the folder and below it, rather than one file you name. The `.`
+    is that folder — here, your whole site.
 
 !!! tip "The escape hatch"
 
@@ -1284,7 +1287,8 @@ Deleting the branch does not delete the commits. They're part of `main`'s histor
   history, so the pushed-versus-not rule from section 5 applies with force. Learn it after
   merging feels boring.
 - **Git aliases** — the same idea as the shell aliases in
-  [tutorial 2](02-too-big-for-excel.md), but git's own:
+  [tutorial 2](02-too-big-for-excel.md#8-saving-the-answer-not-just-seeing-it), but git's
+  own:
 
     ```bash
     git config --global alias.lg "log --oneline --graph --all"
