@@ -56,7 +56,43 @@ cd ~/projects/your-username.github.io
 python -m http.server 8000
 ```
 
-Leave that window alone. Open a **second** terminal in the same folder for everything below.
+Open `http://localhost:8000` in your browser. That's your site, served off your own
+computer — the same files GitHub is showing the world, except nobody can see this copy.
+
+Leave that window alone; the server keeps running until you stop it with ++ctrl+c++. Open a
+**second** terminal in the same folder for everything below.
+
+??? note "You last did this a while ago and something already went wrong"
+
+    **`command not found: python`** — try `python3 -m http.server 8000`. Most systems have
+    one or the other, not both.
+
+    **`cd: no such file or directory`** — the folder is somewhere else, or on a machine you
+    aren't sitting at. Go looking:
+
+    ```bash
+    find ~ -maxdepth 4 -type d -name "*.github.io" 2>/dev/null
+    ```
+
+    If it genuinely isn't there, clone it again — everything is on GitHub, and the folder
+    on your laptop was never the only copy:
+
+    ```bash
+    cd ~/projects
+    gh repo clone your-username/your-username.github.io
+    ```
+
+    **`Address already in use`** — a server from a previous session is still running.
+    Either find that terminal window and press ++ctrl+c++, or just use another port with
+    `python -m http.server 8001` and open `localhost:8001` instead.
+
+    **The browser shows a list of files instead of your page** — you started the server one
+    folder too high. `ls` should show `index.html`. If it shows the repository folder
+    instead, `cd` into it and start again.
+
+    **You're picking this tutorial back up halfway through** — run `git branch`. The branch
+    with the `*` next to it is where you left off, and `git log --oneline -3` will remind
+    you what you'd done.
 
 ```bash
 git log
