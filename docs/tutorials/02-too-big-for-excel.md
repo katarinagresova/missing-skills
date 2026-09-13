@@ -668,6 +668,62 @@ The whole thing — five files, 573 MB, four separate questions — takes about 
     processes data nobody can find again is not reproducible. This is the cheapest possible
     version of a habit that [tutorial 6](../index.md) makes properly.
 
+### Stop typing `ls -lh`
+
+You have typed `ls -lh` a dozen times by now, and you will type it a few thousand more.
+Give it a shorter name:
+
+```bash
+alias ll='ls -lh'
+```
+
+Now `ll` does the same thing. An alias is a nickname for a command: the shell expands it
+before running anything, in the same way it expands a glob.
+
+That one lasts until you close the terminal. To keep it, put it in your shell's config
+file — a file that runs automatically every time a terminal opens. Which file depends on
+which shell you have, so ask:
+
+```bash
+echo $SHELL
+```
+
+=== "zsh (default on macOS)"
+
+    ```bash
+    echo "alias ll='ls -lh'" >> ~/.zshrc
+    source ~/.zshrc
+    ```
+
+=== "bash (Linux, Git Bash)"
+
+    ```bash
+    echo "alias ll='ls -lh'" >> ~/.bashrc
+    source ~/.bashrc
+    ```
+
+`source` re-reads the config file in the terminal you already have open, so the alias works
+straight away instead of only in the next one.
+
+!!! danger "Two `>`, not one"
+
+    `>>` appends. A single `>` would empty your config file first — the same mistake as
+    above, on a file you would rather not lose. If that makes you nervous, open the file in
+    your editor and type the line in by hand instead.
+
+Add aliases as the annoyance turns up, not in advance. The ones that stick are always the
+commands you have already typed too many times.
+
+!!! warning "Aliases are yours alone"
+
+    An alias lives in *your* config file. It does not exist inside a script, and it does
+    not exist on anyone else's machine. Put `ll` in `summarise.sh` and it will work
+    perfectly for you and fail for everybody who tries to run it.
+
+    That is the line between the two halves of this section. A **script** is how you make
+    work repeatable *for other people*. An **alias** is how you make typing bearable *for
+    you*. Keep each one on its own side of that line.
+
 ---
 
 ## 9. Put it on GitHub
@@ -976,6 +1032,8 @@ And the tools worth meeting next, when you hit their specific wall:
 - **Globs**: that `*`, `?` and `[...]` are expanded by the *shell*, before the command
   runs, and that this is why every command handles multiple files.
 - **Redirection**: `>` and `>>`, and why `>` onto your input file is unrecoverable.
+- **Aliases**: a nickname for a command you type too often, why it belongs in your shell's
+  config file, and why it must never appear inside a script.
 - **Two ways to be confidently wrong**: `grep` matching whole lines when you meant one
   column, and headers hiding inside concatenated files.
 - **The reproducibility habit**: keep the commands, not the output. Commit the script, not
