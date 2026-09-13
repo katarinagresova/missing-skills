@@ -477,6 +477,62 @@
   margin-bottom: 0;
 }
 
+/* --- Teaching and consulting --------------------------------------------- */
+
+.md-typeset .ms-offer > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.6rem;
+  margin: 0 0 1.1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .ms-offer > ul > li {
+  position: relative;
+  margin: 0;
+  padding: 1rem 1.1rem 1rem 3.2rem;
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  border-radius: var(--ms-radius);
+  background: var(--md-default-bg-color);
+}
+
+.md-typeset .ms-offer > ul > li > :first-child {
+  margin-top: 0;
+}
+
+.md-typeset .ms-offer > ul > li > :last-child {
+  margin-bottom: 0;
+}
+
+/* Same tinted tile as the tutorial cards, aligned with the heading beside it. */
+.md-typeset .ms-offer .ms-offer__icon {
+  position: absolute;
+  top: 1.05rem;
+  left: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: var(--ms-radius-sm);
+  background: var(--md-code-bg-color);
+  color: var(--md-primary-fg-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .ms-offer .ms-offer__icon {
+  color: var(--md-accent-fg-color);
+}
+
+.md-typeset .ms-offer .ms-offer__icon .twemoji {
+  display: flex;
+}
+
+.md-typeset .ms-offer__foot {
+  margin-bottom: 0;
+  color: var(--md-default-fg-color--light);
+}
+
 /* --- Closing call to action ---------------------------------------------- */
 
 .md-typeset .ms-cta {

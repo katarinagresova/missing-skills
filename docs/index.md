@@ -163,6 +163,34 @@ people, and the "when things go wrong" sections come straight from watching them
 
 </div>
 
+## Want this taught to your group?
+
+The tutorials started as live sessions, and they still work best that way.
+{ .ms-section-lede }
+
+<div class="ms-offer" markdown>
+
+-   <span class="ms-offer__icon">:material-account-group:{ .lg }</span>
+    **Run the course for your people**
+
+    A lab, a department, a graduate programme, a summer school. In person or online, as a
+    single day or spread across several weeks, and shaped around what your group already
+    knows rather than what the tutorials assume.
+
+-   <span class="ms-offer__icon">:material-chat-question:{ .lg }</span>
+    **Book a consultation**
+
+    One to one, on something specific: an analysis that needs to be reproducible, a
+    project that has outgrown a folder of scripts, or a CV and GitHub profile that don't
+    yet show what you can actually do.
+
+</div>
+
+Either way, email me at
+[katarina.gresova@mdc-berlin.de](mailto:katarina.gresova@mdc-berlin.de). It helps if you say
+who the audience is and what you'd like them to be able to do afterwards.
+{ .ms-offer__foot }
+
 <div class="ms-cta" markdown>
 
 ### Nothing to install before you begin
