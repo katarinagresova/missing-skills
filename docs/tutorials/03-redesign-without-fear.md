@@ -108,9 +108,10 @@ Date:   Mon Sep 8 14:22:31 2025 +0200
     Add content and stylesheet
 ```
 
-Press ++q++ to get out. (`git log` opens a pager — the same one `less` uses. ++q++ quits it,
-++space++ pages down. If you've ever been trapped in a terminal that won't take new
-commands, this was probably why.)
+Press ++q++ to get out. (`git log` hands its output to a **pager** — a program for
+scrolling through text that's too long for one screen. ++space++ pages down, ++q++ quits
+and gives you your prompt back. If you've ever been trapped in a terminal that won't take
+new commands, this was probably why.)
 
 That output is too much. This is the version you'll actually use:
 
@@ -421,6 +422,11 @@ To see it, switch your computer to dark mode:
 === "Windows"
 
     Settings → Personalisation → Colours → Choose your mode → Dark
+
+=== "Linux"
+
+    GNOME: Settings → Appearance → Style → Dark. KDE: Settings → Appearance → Global
+    Theme → Breeze Dark. If your desktop doesn't offer it, use the browser tab.
 
 === "Firefox / Chrome, without changing your OS"
 
@@ -962,8 +968,10 @@ Your history now shows both lines of work joined back together.
     grep -rn "<<<<<<<" .
     ```
 
-    No output means you're clean. (That's `grep` from [tutorial 2](02-too-big-for-excel.md)
-    — this is exactly the kind of small check it's for.)
+    No output means you're clean. That's `grep` from
+    [tutorial 2](02-too-big-for-excel.md#6-grep), with one
+    flag it didn't cover: `-r` searches every file in the folder and below it, rather than
+    one file you name. The `.` is that folder — here, your whole site.
 
 !!! tip "The escape hatch"
 
