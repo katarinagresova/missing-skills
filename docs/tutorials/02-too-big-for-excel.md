@@ -988,7 +988,7 @@ website, this one shows you can handle data.
 
     Then fix `.gitignore`, run `git rm -r --cached data`, and commit again. Check with
     `git status` before pushing. Undoing things properly is
-    [tutorial 3](../index.md).
+    [tutorial 3](03-redesign-without-fear.md).
 
 ---
 

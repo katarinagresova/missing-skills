@@ -37,11 +37,15 @@ a tutorial skips something, that's usually on purpose.
     Pipes, globs, and `grep`, on 1.2 million rows of real human genetics data — more
     than a spreadsheet can physically hold.
 
+-   :material-source-branch: **[3. Redesign your website without fear](tutorials/03-redesign-without-fear.md)**
+
+    Branches, five ways to undo, and getting back a file you deleted on purpose — on the
+    site you are already afraid to touch.
+
 </div>
 
 Planned, in roughly this order:
 
-- **3. Redesign your website without fear** — branches, undoing things, and getting back a file you deleted on purpose.
 - **4. Fix something on this site** — your first pull request, reviewed by a real person, on a repository other people read.
 - **5. Make a stranger's code run** — virtual environments and pinned dependencies, proven by deleting yours and rebuilding it.
 - **6. One command from raw data to figure** — project structure, notebooks vs. scripts, and never touching `data/raw/`.

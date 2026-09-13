@@ -38,6 +38,7 @@ nav:
   - Tutorials:
       - 1. Your personal website: tutorials/01-personal-website.md
       - 2. The file too big for Excel: tutorials/02-too-big-for-excel.md
+      - 3. Redesign your website without fear: tutorials/03-redesign-without-fear.md
 
 markdown_extensions:
   - admonition
