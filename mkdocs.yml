@@ -7,6 +7,12 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  favicon: assets/favicon.svg
+  icon:
+    logo: material/puzzle
+  font:
+    text: Inter
+    code: JetBrains Mono
   features:
     - navigation.instant
     - navigation.tracking
@@ -61,6 +67,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.keys
+
+extra_css:
+  - stylesheets/extra.css
 
 extra:
   social:

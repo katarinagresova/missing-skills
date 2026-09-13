@@ -1,6 +1,29 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
+<div class="ms-hero" markdown>
+
+<span class="ms-hero__badge">Free · Open source · CC BY 4.0</span>
+
 # The Missing Skills
 
-*The computational skills nobody taught you in your science degree.*
+<p class="ms-hero__tagline">The computational skills nobody taught you in your science degree.</p>
+
+[Start with tutorial 1](tutorials/01-personal-website.md){ .md-button .md-button--primary }
+[See what's covered](#the-tutorials){ .md-button }
+
+</div>
+
+<div class="ms-stats" markdown>
+
+- **3** tutorials, written and tested on real people
+- **6** more planned, in order
+- **0** accounts to create, apart from GitHub
+
+</div>
 
 ## Who this is for
 
@@ -25,35 +48,60 @@ a tutorial skips something, that's usually on purpose.
 
 ## The tutorials
 
-<div class="grid cards" markdown>
+Start with the first one. After that, two and three can be done in either order.
+{ .ms-section-lede }
 
--   :material-web: **[1. Your personal website](tutorials/01-personal-website.md)**
+<div class="grid cards ms-cards" markdown>
+
+-   :material-web:{ .lg } <span class="ms-card-title">[1. Your personal website](tutorials/01-personal-website.md)</span>
 
     Get something of yours live on the internet in the first twenty minutes, then learn
     git, the shell, and HTML by improving it.
 
--   :material-console: **[2. The file too big for Excel](tutorials/02-too-big-for-excel.md)**
+    ---
+
+    <span class="ms-card-tags">git · the shell · HTML · GitHub Pages</span>
+
+-   :material-console:{ .lg } <span class="ms-card-title">[2. The file too big for Excel](tutorials/02-too-big-for-excel.md)</span>
 
     Pipes, globs, and `grep`, on 1.2 million rows of real human genetics data — more
     than a spreadsheet can physically hold.
 
--   :material-source-branch: **[3. Redesign your website without fear](tutorials/03-redesign-without-fear.md)**
+    ---
+
+    <span class="ms-card-tags">pipes · globs · `grep` · `sort` · `cut`</span>
+
+-   :material-source-branch:{ .lg } <span class="ms-card-title">[3. Redesign your website without fear](tutorials/03-redesign-without-fear.md)</span>
 
     Branches, five ways to undo, and getting back a file you deleted on purpose — on the
     site you are already afraid to touch.
 
+    ---
+
+    <span class="ms-card-tags">branches · merging · five ways to undo</span>
+
 </div>
 
-Planned, in roughly this order:
+## What's coming
 
-- **4. Fix something on this site** — your first pull request, reviewed by a real person, on a repository other people read.
-- **5. Make a stranger's code run** — virtual environments and pinned dependencies, proven by deleting yours and rebuilding it.
-- **6. One command from raw data to figure** — project structure, notebooks vs. scripts, and never touching `data/raw/`.
-- **7. The function you keep copy-pasting** — packaging a helper you already wrote, until `pip install` works for someone else.
-- **8. Run something longer than your laptop's battery** — SSH, `tmux`, moving data, and job arrays on a cluster.
-- **9. The ninety-second version of you** — profile README, pinned repositories, and what a hiring manager actually sees.
+Planned, in roughly this order:
+{ .ms-section-lede }
+
+<div class="ms-roadmap" markdown>
+
+- <span class="ms-step">4</span> **Fix something on this site** — your first pull request, reviewed by a real person, on a repository other people read.
+- <span class="ms-step">5</span> **Make a stranger's code run** — virtual environments and pinned dependencies, proven by deleting yours and rebuilding it.
+- <span class="ms-step">6</span> **One command from raw data to figure** — project structure, notebooks vs. scripts, and never touching `data/raw/`.
+- <span class="ms-step">7</span> **The function you keep copy-pasting** — packaging a helper you already wrote, until `pip install` works for someone else.
+- <span class="ms-step">8</span> **Run something longer than your laptop's battery** — SSH, `tmux`, moving data, and job arrays on a cluster.
+- <span class="ms-step">9</span> **The ninety-second version of you** — profile README, pinned repositories, and what a hiring manager actually sees.
+
+</div>
 
 Further out, not yet slotted into the order:
+{ .ms-section-lede }
+
+<div class="ms-later" markdown>
 
 - **Ask a question that gets answered** — reading a traceback, building a minimal example, and writing an issue nobody closes.
 - **Data that lies to you** — Excel and your gene names, encodings, dates, and joins that quietly drop rows.
@@ -62,10 +110,18 @@ Further out, not yet slotted into the order:
 - **Figures people can read** — vector formats, colourblind-safe palettes, and figures built by a script you can re-run.
 - **A manuscript that survives four co-authors** — writing under version control, built to PDF automatically.
 
+</div>
+
 Nothing here has a date attached. The list is public so you can tell whether it's worth
 bookmarking.
 
 ## Who wrote this and why
+
+<div class="ms-author" markdown>
+
+![Katarina Grešová](assets/katarina.jpg){ .ms-author__avatar }
+
+<div class="ms-author__text" markdown>
 
 I'm [Katarina Grešová](https://github.com/katarinagresova), and I do computational
 work in the life sciences. I kept having the same conversation — with friends finishing
@@ -75,6 +131,20 @@ manual they somehow hadn't received.
 
 So I started writing the manual down. The tutorials come out of real sessions with real
 people, and the "when things go wrong" sections come straight from watching them get stuck.
+
+</div>
+
+</div>
+
+<div class="ms-cta" markdown>
+
+### Nothing to install before you begin
+
+Twenty minutes and a browser get your first page live. The rest builds on that one.
+
+[Start with tutorial 1](tutorials/01-personal-website.md){ .md-button .md-button--primary }
+
+</div>
 
 !!! question "Got stuck, or something here is wrong?"
 

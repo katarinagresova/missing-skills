@@ -1,0 +1,453 @@
+/* ---------------------------------------------------------------------------
+   The Missing Skills — landing page and shared polish.
+
+   Note on units: Material sets the root font size to 125%, so 1rem = 20px
+   here. Values below are deliberately small for that reason.
+
+   Note on weights: the theme only loads 300, 400 and 700 of the body font, so
+   anything else would be synthesised by the browser. Stick to those three.
+   --------------------------------------------------------------------------- */
+
+:root {
+  --ms-radius: 0.6rem;
+  --ms-radius-sm: 0.4rem;
+  --ms-hero-ink: #f2fbfa;
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.ms-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin: 0 0 1.6rem;
+  padding: 3rem 1.6rem 2.8rem;
+  border-radius: 1rem;
+  text-align: center;
+  color: var(--ms-hero-ink);
+  background:
+    radial-gradient(125% 135% at 50% -25%,
+      #19bfae 0%, #0f8f83 32%, #0c5b56 62%, #07302f 100%);
+}
+
+/* Dot grid, faded out towards the bottom. */
+.ms-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 0.9rem 0.9rem;
+  -webkit-mask-image: radial-gradient(75% 85% at 50% 0%, #000 0%, transparent 78%);
+  mask-image: radial-gradient(75% 85% at 50% 0%, #000 0%, transparent 78%);
+}
+
+.md-typeset .ms-hero > :first-child {
+  margin-top: 0;
+}
+
+.md-typeset .ms-hero > p:first-child {
+  margin-bottom: 0.55rem;
+}
+
+.md-typeset .ms-hero > p:last-of-type {
+  margin-bottom: 0;
+}
+
+.md-typeset .ms-hero .headerlink {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.md-typeset .ms-hero .headerlink:hover {
+  color: #fff;
+}
+
+.ms-hero__badge {
+  display: inline-block;
+  padding: 0.18rem 0.65rem;
+  border: 0.05rem solid rgba(255, 255, 255, 0.28);
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.md-typeset .ms-hero h1 {
+  margin: 0 0 0.7rem;
+  color: #fff;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.md-typeset .ms-hero .ms-hero__tagline {
+  max-width: 26rem;
+  margin: 0 auto 1.4rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.md-typeset .ms-hero .md-button {
+  margin: 0.2rem 0.15rem;
+  border-radius: 2rem;
+  border-width: 0.05rem;
+  padding: 0.55em 1.6em;
+  font-size: 0.75rem;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.md-typeset .ms-hero .md-button:focus,
+.md-typeset .ms-hero .md-button:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: #fff;
+  color: #fff;
+}
+
+.md-typeset .ms-hero .md-button--primary {
+  background-color: #fff;
+  border-color: #fff;
+  color: #0a4a46;
+}
+
+.md-typeset .ms-hero .md-button--primary:focus,
+.md-typeset .ms-hero .md-button--primary:hover {
+  background-color: #d8fbf6;
+  border-color: #d8fbf6;
+  color: #06302e;
+}
+
+/* --- Counters strip ------------------------------------------------------ */
+
+.md-typeset .ms-stats > ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  margin: 0 0 2.4rem;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .ms-stats > ul > li {
+  margin: 0;
+  padding: 0.7rem 0.3rem;
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  border-radius: var(--ms-radius-sm);
+  text-align: center;
+  font-size: 0.62rem;
+  line-height: 1.35;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .ms-stats > ul > li > strong {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--md-primary-fg-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .ms-stats > ul > li > strong {
+  color: var(--md-accent-fg-color);
+}
+
+/* --- Section headings ---------------------------------------------------- */
+
+.md-typeset .ms-section-lede {
+  margin-top: 0;
+  margin-bottom: 1.1rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* --- Tutorial cards ------------------------------------------------------ */
+
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > .card {
+  border-radius: var(--ms-radius);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.md-typeset .grid.cards > ul > li:focus-within,
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid > .card:focus-within,
+.md-typeset .grid > .card:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 0.25rem 0.9rem rgba(0, 0, 0, 0.11);
+  transform: translateY(-0.1rem);
+}
+
+/* Icon gets its own tinted tile above the title. */
+.md-typeset .ms-cards .twemoji.lg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  margin-bottom: 0.55rem;
+  border-radius: var(--ms-radius-sm);
+  background: var(--md-code-bg-color);
+  color: var(--md-primary-fg-color);
+  vertical-align: baseline;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .ms-cards .twemoji.lg {
+  color: var(--md-accent-fg-color);
+}
+
+.md-typeset .ms-cards .ms-card-title {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.md-typeset .ms-cards .ms-card-title a {
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset .ms-cards .ms-card-title a:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.md-typeset .ms-cards > ul > li > hr {
+  margin: 0.7rem 0;
+  border-bottom-color: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .ms-cards > ul > li > p:last-child {
+  margin-bottom: 0;
+}
+
+.md-typeset .ms-cards .ms-card-tags {
+  font-size: 0.6rem;
+  letter-spacing: 0.02em;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .ms-cards .ms-card-tags code {
+  font-size: 0.9em;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+/* --- Roadmap ------------------------------------------------------------- */
+
+.md-typeset .ms-roadmap > ul {
+  position: relative;
+  margin: 0 0 1.6rem;
+  padding: 0 0 0 1.7rem;
+  list-style: none;
+}
+
+.md-typeset .ms-roadmap > ul::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  bottom: 0.7rem;
+  left: 0.55rem;
+  width: 0.05rem;
+  background: linear-gradient(
+    to bottom,
+    var(--md-default-fg-color--lighter),
+    var(--md-default-fg-color--lightest) 70%,
+    transparent
+  );
+}
+
+.md-typeset .ms-roadmap > ul > li {
+  position: relative;
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .ms-roadmap .ms-step {
+  position: absolute;
+  top: 0.02rem;
+  left: -1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 0.05rem solid var(--md-default-fg-color--lighter);
+  border-radius: 50%;
+  background: var(--md-default-bg-color);
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .ms-roadmap > ul > li:hover .ms-step {
+  border-color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+}
+
+.md-typeset .ms-roadmap > ul > li > strong {
+  color: var(--md-default-fg-color);
+}
+
+/* --- Further out --------------------------------------------------------- */
+
+.md-typeset .ms-later > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.4rem;
+  margin: 0 0 1.2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .ms-later > ul > li {
+  margin: 0;
+  padding: 0.55rem 0.7rem;
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  border-radius: var(--ms-radius-sm);
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .ms-later > ul > li > strong {
+  color: var(--md-default-fg-color);
+}
+
+/* --- Author -------------------------------------------------------------- */
+
+.md-typeset .ms-author {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.1rem 1.2rem;
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  border-radius: var(--ms-radius);
+  background: var(--md-code-bg-color);
+}
+
+.md-typeset .ms-author > p:first-child {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.md-typeset .ms-author__avatar {
+  display: block;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 50%;
+}
+
+.md-typeset .ms-author__text > :first-child {
+  margin-top: 0;
+}
+
+.md-typeset .ms-author__text > :last-child {
+  margin-bottom: 0;
+}
+
+/* --- Closing call to action ---------------------------------------------- */
+
+.md-typeset .ms-cta {
+  margin: 2.4rem 0 1.6rem;
+  padding: 1.6rem 1.2rem;
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  border-radius: var(--ms-radius);
+  text-align: center;
+}
+
+.md-typeset .ms-cta > :first-child {
+  margin-top: 0;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.md-typeset .ms-cta > :last-child {
+  margin-bottom: 0;
+}
+
+.md-typeset .ms-cta .md-button {
+  border-radius: 2rem;
+  border-width: 0.05rem;
+}
+
+/* --- Site-wide ----------------------------------------------------------- */
+
+.md-typeset h1,
+.md-typeset h2 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.md-typeset h2 {
+  margin-top: 1.8em;
+}
+
+.md-typeset h3 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.md-typeset .md-button {
+  border-radius: 2rem;
+  border-width: 0.05rem;
+}
+
+.md-header__topic:first-child .md-ellipsis {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* --- Small screens ------------------------------------------------------- */
+
+@media screen and (max-width: 44.984375em) {
+  .ms-hero {
+    padding: 2.2rem 1rem 2rem;
+    border-radius: 0.7rem;
+  }
+
+  .md-typeset .ms-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .md-typeset .ms-hero .ms-hero__tagline {
+    font-size: 0.82rem;
+  }
+
+  .md-typeset .ms-hero .md-button {
+    display: block;
+    margin: 0.3rem 0 0;
+    text-align: center;
+  }
+
+  .md-typeset .ms-stats > ul {
+    grid-template-columns: 1fr;
+  }
+
+  .md-typeset .ms-author {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* --- Motion preferences -------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .grid.cards > ul > li,
+  .md-typeset .grid > .card {
+    transition: none;
+  }
+
+  .md-typeset .grid.cards > ul > li:hover,
+  .md-typeset .grid > .card:hover {
+    transform: none;
+  }
+}
