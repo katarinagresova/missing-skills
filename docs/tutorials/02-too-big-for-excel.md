@@ -811,14 +811,31 @@ git commit -m "Summarise GWAS Catalog associations with shell pipelines"
 Run `git status` and check the data files are **not** listed. If they are, your `.gitignore`
 isn't right — fix it before pushing.
 
-Then create the repository on GitHub and push in one step:
+Then create the repository on GitHub. As in
+[tutorial 1](01-personal-website.md#create-the-magic-repository):
+
+1. Go to [github.com/new](https://github.com/new).
+2. **Repository name**: `too-big-for-excel`.
+3. Set it to **Public**.
+4. Leave **Add a README file** unticked. This folder already has one, and a repository
+   created with its own separate history will refuse your push.
+5. Click **Create repository**.
+
+That gives you an empty repository and a page of setup instructions. You only need two
+lines of it:
 
 ```bash
-gh repo create too-big-for-excel --public --source=. --push
+git remote add origin git@github.com:your-username/too-big-for-excel.git
+git push -u origin main
 ```
 
-Open the URL it prints. That's a second public thing with your name on it — and unlike the
-website, this one shows you can handle data.
+The first line tells this folder where on GitHub it belongs. `origin` is just the
+conventional name for "the copy on GitHub" — nothing magic about the word. The `-u` on the
+second line records that as the default, which is why every push after this one is a bare
+`git push`.
+
+Open `https://github.com/your-username/too-big-for-excel`. That's a second public thing
+with your name on it — and unlike the website, this one shows you can handle data.
 
 !!! tip "Link it from your website"
 

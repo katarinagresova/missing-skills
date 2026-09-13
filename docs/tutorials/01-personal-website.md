@@ -215,39 +215,111 @@ the only command here that can't break anything, and it usually tells you what t
 
 ### Connecting your computer to GitHub
 
-Your computer needs to prove it's allowed to push to your repositories. The gentlest way is
-GitHub's own command-line tool.
+Your computer needs to prove it's allowed to push to your repositories. You do that with an
+**SSH key**.
 
-Install the [GitHub CLI](https://cli.github.com/): download the installer from that page,
-or:
+The idea is simpler than the name makes it sound. You generate a *pair* of files. One is
+private and never leaves your computer. The other is public, and you paste it into GitHub.
+From then on GitHub recognises this computer and lets it push — no password, ever again.
+
+This is worth doing properly, because it isn't really a GitHub thing. It's the same kind of
+key, made by the same command, that gets you into a compute cluster or a remote server
+later.
+
+**1. Generate the key**
 
 ```bash
-brew install gh        # macOS with Homebrew
-sudo apt install gh    # Debian, Ubuntu
+ssh-keygen -t ed25519 -C "your.email@example.com"
 ```
 
-Then:
+Use the same email address as your GitHub account. It asks you three questions:
+
+- **Enter file in which to save the key** → press ++enter++ to accept the default,
+  `~/.ssh/id_ed25519`.
+- **Enter passphrase** → press ++enter++ for none, or type one. A passphrase protects the
+  key if your laptop is stolen, at the cost of typing it every time you push. On a computer
+  only you use, empty is a reasonable choice.
+- **Enter same passphrase again** → the same again.
+
+You now have two files in `~/.ssh/`:
+
+| File | What it is |
+|---|---|
+| `id_ed25519` | **Private.** Stays on this computer. Never send it anywhere. |
+| `id_ed25519.pub` | **Public.** This is the one you give to GitHub. |
+
+!!! warning "Only the `.pub` file leaves your computer"
+
+    The two names differ by four characters, and that difference is the entire security
+    model. Anyone holding the private key can act as you on GitHub. If you ever paste it
+    somewhere by accident, generate a new pair and delete the old key from GitHub — it
+    takes a minute, and it's much better than the alternative.
+
+**2. Copy the public key**
 
 ```bash
-gh auth login
+cat ~/.ssh/id_ed25519.pub
 ```
 
-It asks you a few questions. Answer:
+You get one long line starting with `ssh-ed25519` and ending with your email address.
+Select the whole thing and copy it — from `ssh-` to the last character, with no line breaks
+in the middle.
 
-- **What account do you want to log into?** → GitHub.com
-- **What is your preferred protocol?** → HTTPS
-- **Authenticate Git with your GitHub credentials?** → Yes
-- **How would you like to authenticate?** → Login with a web browser
+**3. Give it to GitHub**
 
-It shows you an eight-character code, then opens your browser. Paste the code, approve,
-come back to the terminal. Done — you won't have to do this again on this computer.
+1. Go to [github.com/settings/keys](https://github.com/settings/keys).
+2. Click **New SSH key**.
+3. **Title**: something that tells you which machine it is — `laptop`, `work desktop`.
+   You'll accumulate a few of these over the years, and "key 1" will mean nothing to you.
+4. **Key type**: Authentication key.
+5. Paste into the **Key** box and click **Add SSH key**.
+
+**4. Test that it works**
+
+Don't skip this. It's one command, and a problem is far easier to understand now than in
+the middle of your first push:
+
+```bash
+ssh -T git@github.com
+```
+
+The first time, it tells you it has never seen github.com before:
+
+```
+The authenticity of host 'github.com (140.82.121.4)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+Type `yes` and press ++enter++. That fingerprint is GitHub's own, and GitHub
+[publishes it](https://docs.github.com/en/authentication/keeping-your-account-secure/githubs-ssh-key-fingerprints)
+— it should match the line above character for character. Then you should see:
+
+```
+Hi your-username! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+**That is success**, despite the "but". It's telling you two things: your key works, and
+github.com isn't a machine you can log into and use as a terminal. Your own username in
+that greeting is what you're checking for.
 
 !!! warning "Your GitHub password won't work"
 
-    If you ever see git asking for a username and password in the terminal, your account
-    password is not the answer — GitHub stopped accepting it in 2021. `gh auth login`
-    handles this properly. If you're being asked, the login above hasn't been done or
-    didn't complete.
+    If git ever asks for a username and password in the terminal, your account password is
+    not the answer — GitHub stopped accepting it in 2021. It means git is talking to GitHub
+    over HTTPS instead of using your key. See
+    [when things go wrong](#7-when-things-go-wrong).
+
+??? tip "If you'd rather use the GitHub CLI"
+
+    The [GitHub CLI](https://cli.github.com/) can set all this up for you: install `gh`,
+    run `gh auth login`, and choose "Login with a web browser". On your own laptop that is
+    a perfectly good choice.
+
+    The reason this tutorial teaches keys instead is that `gh` is another program to
+    install, and it usually isn't available — and can't be installed — on the shared
+    compute clusters where you're most likely to want this. `ssh-keygen` is already on
+    every machine that has git.
 
 ### Where am I?
 
@@ -302,13 +374,26 @@ cd projects
 Then **clone** it — make a local copy that stays connected to GitHub:
 
 ```bash
-gh repo clone your-username/your-username.github.io
+git clone git@github.com:your-username/your-username.github.io.git
 cd your-username.github.io
 ls
 ```
 
 You should see `index.html` and `README.md`. This folder is now a git repository: git is
 watching it, and it knows where on GitHub it came from.
+
+!!! warning "Copy the SSH address, not the HTTPS one"
+
+    If you get that address from the green **Code** button on GitHub rather than typing it
+    out, notice that the button opens on the **HTTPS** tab. Click **SSH** first. The two
+    look alike, and only the SSH one uses the key you just set up:
+
+    ```
+    git@github.com:agnesbio/agnesbio.github.io.git        ← SSH, what you want
+    https://github.com/agnesbio/agnesbio.github.io.git    ← HTTPS, will ask for a password
+    ```
+
+    The `:` after `github.com` is not a typo. SSH addresses use a colon there, not a slash.
 
 ### Edit, preview, push
 
@@ -571,14 +656,55 @@ This section is the one to come back to. Expand whichever matches.
 
 ??? failure "`git push` asks for a username and password"
 
-    Your account password won't work; GitHub disabled that in 2021. Run:
+    Your account password won't work; GitHub disabled that in 2021. What's happening is
+    that this repository is talking to GitHub over HTTPS instead of using your SSH key.
+    Check which one it's using:
 
     ```bash
-    gh auth login
+    git remote -v
     ```
 
-    and choose HTTPS, then "Login with a web browser". See
-    [step 5](#connecting-your-computer-to-github).
+    If the address starts with `https://github.com/`, point it at SSH instead:
+
+    ```bash
+    git remote set-url origin git@github.com:your-username/your-username.github.io.git
+    ```
+
+    Run `git remote -v` again to confirm it changed, then push. If it *still* asks, the key
+    itself is the problem — see the next box.
+
+??? failure "`git@github.com: Permission denied (publickey)`"
+
+    GitHub isn't recognising your key. Test it on its own:
+
+    ```bash
+    ssh -T git@github.com
+    ```
+
+    If that fails too, it's one of three things:
+
+    1. **There's no key on this computer.** `ls ~/.ssh/` should list `id_ed25519` and
+       `id_ed25519.pub`. If it doesn't, generate one —
+       [step 5](#connecting-your-computer-to-github).
+    2. **The key never reached GitHub.** Open
+       [github.com/settings/keys](https://github.com/settings/keys) and compare what's
+       listed there against the output of `cat ~/.ssh/id_ed25519.pub`.
+    3. **You're on a different computer** than the one you set up. Keys are per-machine,
+       and that's deliberate. Generate a key here too and add it — one account can hold
+       many, which is how you revoke a lost laptop without disturbing anything else.
+
+??? failure "It asks for my key passphrase every single time"
+
+    That is what a passphrase does. To type it once per session instead of once per push,
+    hand the key to the ssh-agent:
+
+    ```bash
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519
+    ```
+
+    On macOS, `ssh-add --apple-use-keychain ~/.ssh/id_ed25519` stores it in the keychain
+    and you won't be asked again on that machine.
 
 ??? failure "`nothing to commit, working tree clean` — but I changed something"
 

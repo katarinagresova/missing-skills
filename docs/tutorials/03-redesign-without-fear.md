@@ -79,7 +79,7 @@ Leave that window alone; the server keeps running until you stop it with ++ctrl+
 
     ```bash
     cd ~/projects
-    gh repo clone your-username/your-username.github.io
+    git clone git@github.com:your-username/your-username.github.io.git
     ```
 
     **`Address already in use`** — a server from a previous session is still running.
