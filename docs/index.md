@@ -6,14 +6,35 @@ hide:
 
 <div class="ms-hero" markdown>
 
+<div class="ms-hero__text" markdown>
+
 <span class="ms-hero__badge">Free · Open source · CC BY 4.0</span>
 
-# The Missing Skills
+# The computational skills nobody taught you in your science degree.
 
-<p class="ms-hero__tagline">The computational skills nobody taught you in your science degree.</p>
+<p class="ms-hero__tagline">Project-based tutorials. Each one ends with something real on
+your GitHub account, not with notes.</p>
 
 [Start with tutorial 1](tutorials/01-personal-website.md){ .md-button .md-button--primary }
 [See what's covered](#the-tutorials){ .md-button }
+
+</div>
+
+<div class="ms-term" aria-hidden="true">
+<div class="ms-term__bar">
+<span class="ms-term__dot"></span>
+<span class="ms-term__dot"></span>
+<span class="ms-term__dot"></span>
+<span class="ms-term__name">~/my-website</span>
+</div>
+<div class="ms-term__body">
+<div class="ms-term__line"><span class="ms-term__prompt">$</span> git add index.html</div>
+<div class="ms-term__line"><span class="ms-term__prompt">$</span> git commit -m "my first page"</div>
+<div class="ms-term__line ms-term__out">1 file changed, 14 insertions(+)</div>
+<div class="ms-term__line"><span class="ms-term__prompt">$</span> git push</div>
+<div class="ms-term__line ms-term__ok">live at yourname.github.io<span class="ms-term__caret"></span></div>
+</div>
+</div>
 
 </div>
 
@@ -51,34 +72,31 @@ a tutorial skips something, that's usually on purpose.
 Start with the first one. After that, two and three can be done in either order.
 { .ms-section-lede }
 
-<div class="grid cards ms-cards" markdown>
+<div class="ms-tutorials" markdown>
 
--   :material-web:{ .lg } <span class="ms-card-title">[1. Your personal website](tutorials/01-personal-website.md)</span>
+-   <span class="ms-tut-icon">:material-web:{ .lg }</span>
+    <span class="ms-tut-title">[1. Your personal website](tutorials/01-personal-website.md)</span>
 
     Get something of yours live on the internet in the first twenty minutes, then learn
     git, the shell, and HTML by improving it.
 
-    ---
+    <span class="ms-tut-tags">git · the shell · HTML · GitHub Pages</span>
 
-    <span class="ms-card-tags">git · the shell · HTML · GitHub Pages</span>
-
--   :material-console:{ .lg } <span class="ms-card-title">[2. The file too big for Excel](tutorials/02-too-big-for-excel.md)</span>
+-   <span class="ms-tut-icon">:material-console:{ .lg }</span>
+    <span class="ms-tut-title">[2. The file too big for Excel](tutorials/02-too-big-for-excel.md)</span>
 
     Pipes, globs, and `grep`, on 1.2 million rows of real human genetics data — more
     than a spreadsheet can physically hold.
 
-    ---
+    <span class="ms-tut-tags">pipes · globs · `grep` · `sort` · `cut`</span>
 
-    <span class="ms-card-tags">pipes · globs · `grep` · `sort` · `cut`</span>
-
--   :material-source-branch:{ .lg } <span class="ms-card-title">[3. Redesign your website without fear](tutorials/03-redesign-without-fear.md)</span>
+-   <span class="ms-tut-icon">:material-source-branch:{ .lg }</span>
+    <span class="ms-tut-title">[3. Redesign your website without fear](tutorials/03-redesign-without-fear.md)</span>
 
     Branches, five ways to undo, and getting back a file you deleted on purpose — on the
     site you are already afraid to touch.
 
-    ---
-
-    <span class="ms-card-tags">branches · merging · five ways to undo</span>
+    <span class="ms-tut-tags">branches · merging · five ways to undo</span>
 
 </div>
 
@@ -123,11 +141,20 @@ bookmarking.
 
 <div class="ms-author__text" markdown>
 
-I'm [Katarina Grešová](https://github.com/katarinagresova), and I do computational
-work in the life sciences. I kept having the same conversation — with friends finishing
-wet-lab PhDs, with students, with people switching fields — and it was always the same
-handful of skills missing, and always the same feeling that everyone else had been given a
-manual they somehow hadn't received.
+I'm [Katarina Grešová](https://katarinagresova.github.io/), and I work on machine
+learning for genomics at the Max Delbrück Center in Berlin. I arrived at biology sideways:
+a computer science degree first, then a few years writing software for a living, then a
+master's in bioinformatics and a PhD on how small RNAs pick their targets.
+
+Coming that way round meant I already had the terminal, git, and the rest of the scaffolding
+before I met my first biologist. And what I kept running into was people doing genuinely good
+science who were being slowed down, sometimes for weeks, by things nobody had ever sat them
+down and explained.
+
+It was the same conversation every time — with friends finishing wet-lab PhDs, with students
+in the deep-learning workshops I teach, with people switching fields. The same handful of
+skills missing, and the same feeling that everyone else had been handed a manual they somehow
+hadn't received.
 
 So I started writing the manual down. The tutorials come out of real sessions with real
 people, and the "when things go wrong" sections come straight from watching them get stuck.

@@ -16,17 +16,22 @@
 
 /* --- Hero ---------------------------------------------------------------- */
 
+/* Two columns: the pitch on the left, a mock terminal on the right. The panel
+   is dark in both colour schemes, so nothing here needs a slate variant. */
 .ms-hero {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 1.6rem;
+  align-items: center;
   margin: 0 0 1.6rem;
-  padding: 3rem 1.6rem 2.8rem;
+  padding: 2.4rem 1.8rem;
   border-radius: 1rem;
-  text-align: center;
   color: var(--ms-hero-ink);
   background:
-    radial-gradient(125% 135% at 50% -25%,
+    radial-gradient(125% 135% at 15% -25%,
       #19bfae 0%, #0f8f83 32%, #0c5b56 62%, #07302f 100%);
 }
 
@@ -38,20 +43,21 @@
   z-index: -1;
   background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
   background-size: 0.9rem 0.9rem;
-  -webkit-mask-image: radial-gradient(75% 85% at 50% 0%, #000 0%, transparent 78%);
-  mask-image: radial-gradient(75% 85% at 50% 0%, #000 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(85% 90% at 25% 0%, #000 0%, transparent 78%);
+  mask-image: radial-gradient(85% 90% at 25% 0%, #000 0%, transparent 78%);
 }
 
-.md-typeset .ms-hero > :first-child {
+.md-typeset .ms-hero__text > :first-child {
   margin-top: 0;
 }
 
-.md-typeset .ms-hero > p:first-child {
-  margin-bottom: 0.55rem;
+.md-typeset .ms-hero__text > :last-child {
+  margin-bottom: 0;
 }
 
-.md-typeset .ms-hero > p:last-of-type {
-  margin-bottom: 0;
+/* Markdown wraps the badge in a paragraph of its own. */
+.md-typeset .ms-hero__text > p:first-child {
+  margin-bottom: 0.55rem;
 }
 
 .md-typeset .ms-hero .headerlink {
@@ -76,24 +82,24 @@
 }
 
 .md-typeset .ms-hero h1 {
-  margin: 0 0 0.7rem;
+  margin: 0 0 0.6rem;
   color: #fff;
-  font-size: 2.1rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.025em;
 }
 
 .md-typeset .ms-hero .ms-hero__tagline {
-  max-width: 26rem;
-  margin: 0 auto 1.4rem;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.82);
+  max-width: 22rem;
+  margin: 0 0 1.15rem;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .md-typeset .ms-hero .md-button {
-  margin: 0.2rem 0.15rem;
+  margin: 0.25rem 0.3rem 0 0;
   border-radius: 2rem;
   border-width: 0.05rem;
   padding: 0.55em 1.6em;
@@ -120,6 +126,91 @@
   background-color: #d8fbf6;
   border-color: #d8fbf6;
   color: #06302e;
+}
+
+/* --- Hero terminal ------------------------------------------------------- */
+
+/* Decorative only: the markup carries aria-hidden, so it is skipped by screen
+   readers and nothing here is load-bearing for meaning. */
+.ms-term {
+  overflow: hidden;
+  border: 0.05rem solid rgba(255, 255, 255, 0.16);
+  border-radius: 0.55rem;
+  background: rgba(3, 24, 23, 0.66);
+  box-shadow: 0 0.55rem 1.5rem rgba(0, 0, 0, 0.32);
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.6rem;
+  line-height: 1.8;
+}
+
+.ms-term__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.35rem 0.5rem;
+  border-bottom: 0.05rem solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.ms-term__dot {
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ms-term__dot:nth-child(1) { background: #ff5f57; }
+.ms-term__dot:nth-child(2) { background: #febc2e; }
+.ms-term__dot:nth-child(3) { background: #28c840; }
+
+.ms-term__name {
+  margin-left: auto;
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ms-term__body {
+  overflow: hidden;
+  padding: 0.6rem 0.7rem 0.7rem;
+  white-space: nowrap;
+}
+
+.ms-term__line {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ms-term__prompt {
+  margin-right: 0.25em;
+  color: #4fd6c3;
+}
+
+.ms-term__out {
+  padding-left: 0.9em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ms-term__ok {
+  padding-left: 0.9em;
+  color: #6ee7b7;
+}
+
+.ms-term__ok::before {
+  content: "\2713";
+  margin-right: 0.4em;
+}
+
+.ms-term__caret {
+  display: inline-block;
+  width: 0.42em;
+  height: 0.95em;
+  margin-left: 0.3em;
+  vertical-align: -0.12em;
+  background: #6ee7b7;
+  animation: ms-blink 1.15s steps(1) infinite;
+}
+
+@keyframes ms-blink {
+  50% { opacity: 0; }
 }
 
 /* --- Counters strip ------------------------------------------------------ */
@@ -165,77 +256,110 @@
   color: var(--md-default-fg-color--light);
 }
 
-/* --- Tutorial cards ------------------------------------------------------ */
+/* --- Tutorial list ------------------------------------------------------- */
 
-.md-typeset .grid.cards > ul > li,
-.md-typeset .grid > .card {
+/* One full-width row per tutorial. The icon is positioned out of the text flow
+   so the title, blurb and tags stay a single readable column. */
+.md-typeset .ms-tutorials > ul {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0 0 2.2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .ms-tutorials > ul > li {
+  position: relative;
+  margin: 0;
+  padding: 1rem 1.1rem 1rem 3.2rem;
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
   border-radius: var(--ms-radius);
+  background: var(--md-default-bg-color);
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
-.md-typeset .grid.cards > ul > li:focus-within,
-.md-typeset .grid.cards > ul > li:hover,
-.md-typeset .grid > .card:focus-within,
-.md-typeset .grid > .card:hover {
+.md-typeset .ms-tutorials > ul > li:focus-within,
+.md-typeset .ms-tutorials > ul > li:hover {
   border-color: var(--md-accent-fg-color);
   box-shadow: 0 0.25rem 0.9rem rgba(0, 0, 0, 0.11);
   transform: translateY(-0.1rem);
 }
 
-/* Icon gets its own tinted tile above the title. */
-.md-typeset .ms-cards .twemoji.lg {
+.md-typeset .ms-tutorials > ul > li > :first-child {
+  margin-top: 0;
+}
+
+.md-typeset .ms-tutorials > ul > li > :last-child {
+  margin-bottom: 0;
+}
+
+/* Tinted tile, vertically aligned with the title next to it. */
+.md-typeset .ms-tutorials .ms-tut-icon {
+  position: absolute;
+  top: 1.05rem;
+  left: 1.05rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.9rem;
-  height: 1.9rem;
-  margin-bottom: 0.55rem;
+  width: 1.6rem;
+  height: 1.6rem;
   border-radius: var(--ms-radius-sm);
   background: var(--md-code-bg-color);
   color: var(--md-primary-fg-color);
-  vertical-align: baseline;
 }
 
-[data-md-color-scheme="slate"] .md-typeset .ms-cards .twemoji.lg {
+[data-md-color-scheme="slate"] .md-typeset .ms-tutorials .ms-tut-icon {
   color: var(--md-accent-fg-color);
 }
 
-.md-typeset .ms-cards .ms-card-title {
+.md-typeset .ms-tutorials .ms-tut-icon .twemoji {
+  display: flex;
+}
+
+.md-typeset .ms-tutorials .ms-tut-title {
   display: block;
-  margin-bottom: 0.15rem;
-  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.92rem;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.015em;
 }
 
-.md-typeset .ms-cards .ms-card-title a {
+.md-typeset .ms-tutorials .ms-tut-title a {
   color: var(--md-default-fg-color);
 }
 
-.md-typeset .ms-cards .ms-card-title a:hover {
+.md-typeset .ms-tutorials .ms-tut-title a:hover {
   color: var(--md-accent-fg-color);
 }
 
-.md-typeset .ms-cards > ul > li > hr {
-  margin: 0.7rem 0;
-  border-bottom-color: var(--md-default-fg-color--lightest);
+/* The title link covers the whole row, so anywhere on it is clickable. */
+.md-typeset .ms-tutorials .ms-tut-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--ms-radius);
 }
 
-.md-typeset .ms-cards > ul > li > p:last-child {
+/* The tags always end the row; Markdown wraps them in their own paragraph. */
+.md-typeset .ms-tutorials > ul > li > p:last-child {
+  margin-top: 0.6rem;
   margin-bottom: 0;
 }
 
-.md-typeset .ms-cards .ms-card-tags {
+.md-typeset .ms-tutorials .ms-tut-tags {
+  display: block;
+  padding-top: 0.5rem;
+  border-top: 0.05rem solid var(--md-default-fg-color--lightest);
   font-size: 0.6rem;
   letter-spacing: 0.02em;
   color: var(--md-default-fg-color--light);
 }
 
-.md-typeset .ms-cards .ms-card-tags code {
-  font-size: 0.9em;
-  background: transparent;
+.md-typeset .ms-tutorials .ms-tut-tags code {
   padding: 0;
+  background: transparent;
+  font-size: 0.9em;
   color: inherit;
 }
 
@@ -405,20 +529,47 @@
   letter-spacing: -0.01em;
 }
 
+/* The site name in the header is a link back home (see overrides/partials). */
+.md-header__topic .ms-header-home {
+  color: inherit;
+}
+
+.md-header__topic .ms-header-home:hover {
+  opacity: 0.8;
+}
+
+/* --- Medium screens ------------------------------------------------------ */
+
+/* Below this the two hero columns get too narrow to read, so stack them. */
+@media screen and (max-width: 59.984375em) {
+  .ms-hero {
+    grid-template-columns: 1fr;
+    gap: 1.3rem;
+  }
+
+  .md-typeset .ms-hero .ms-hero__tagline {
+    max-width: none;
+  }
+
+  .ms-term {
+    max-width: 21rem;
+  }
+}
+
 /* --- Small screens ------------------------------------------------------- */
 
 @media screen and (max-width: 44.984375em) {
   .ms-hero {
-    padding: 2.2rem 1rem 2rem;
+    padding: 1.9rem 1.1rem;
     border-radius: 0.7rem;
   }
 
   .md-typeset .ms-hero h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .md-typeset .ms-hero .ms-hero__tagline {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
   }
 
   .md-typeset .ms-hero .md-button {
@@ -427,8 +578,21 @@
     text-align: center;
   }
 
+  .ms-term {
+    font-size: 0.52rem;
+  }
+
   .md-typeset .ms-stats > ul {
     grid-template-columns: 1fr;
+  }
+
+  .md-typeset .ms-tutorials > ul > li {
+    padding: 2.9rem 0.9rem 0.9rem;
+  }
+
+  .md-typeset .ms-tutorials .ms-tut-icon {
+    top: 0.9rem;
+    left: 0.9rem;
   }
 
   .md-typeset .ms-author {
@@ -441,13 +605,15 @@
 /* --- Motion preferences -------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .md-typeset .grid.cards > ul > li,
-  .md-typeset .grid > .card {
+  .ms-term__caret {
+    animation: none;
+  }
+
+  .md-typeset .ms-tutorials > ul > li {
     transition: none;
   }
 
-  .md-typeset .grid.cards > ul > li:hover,
-  .md-typeset .grid > .card:hover {
+  .md-typeset .ms-tutorials > ul > li:hover {
     transform: none;
   }
 }
