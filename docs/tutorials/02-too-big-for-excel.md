@@ -732,8 +732,12 @@ You have a script that does something real. Make it public.
 
 ```bash
 cd ~/projects/too-big-for-excel
-git init
+git init -b main
 ```
+
+`-b main` names the first branch `main`, the same name tutorial 1's repository has. Without
+it, older gits call it `master` and print a paragraph of advice about the choice — harmless,
+but you'd then have two repositories with two different names for the same thing.
 
 ### First: do not commit the data
 
