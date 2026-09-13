@@ -643,6 +643,25 @@ changes". You are back at the moment just before you typed `git commit` — whic
 what you actually wanted, because most bad commits are a good change with a typo in the
 message, or two unrelated things committed together.
 
+!!! note "The staging area, finally"
+
+    [Tutorial 1](01-personal-website.md#4-the-git-loop) mentioned that git has "a staging
+    area with its own theory" and told you to ignore it. This is the point where you need
+    it.
+
+    `git add` does not save anything. It puts a change into a holding area — the change is
+    then **staged**, meaning "include this in the next commit". `git commit` saves
+    everything that is staged, and nothing else.
+
+    ```
+    your files  ──git add──▶  staging area  ──git commit──▶  history
+    ```
+
+    Tutorial 1 hid this by always running `git add .` and committing straight away, so the
+    holding area was only ever full for a second. `reset --soft` leaves you standing in
+    that second: the commit is gone, but the change is still staged, ready to be committed
+    again properly.
+
 Here the change really is rubbish, so throw it away too:
 
 ```bash
@@ -650,8 +669,8 @@ git restore --staged style.css
 git restore style.css
 ```
 
-The first takes it out of the staging area; the second throws away the file change. Refresh
-— normal text.
+One command per place the change is sitting: the first takes it out of the staging area,
+the second throws away the edit to the file itself. Refresh — normal text.
 
 !!! danger "`--soft` keeps your work. `--hard` does not."
 
