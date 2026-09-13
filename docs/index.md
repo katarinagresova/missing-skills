@@ -36,14 +36,23 @@ a tutorial skips something, that's usually on purpose.
 
 Planned, in roughly this order:
 
-- [ ] **2. The command line, properly** — paths, pipes, globs, `grep`, and why everything in the shell is text.
-- [ ] **3. Git for one person** — branches, undoing things, and what actually happens when you push.
-- [ ] **4. Git with other people** — forks, pull requests, code review, and merge conflicts.
-- [ ] **5. Python environments that don't break** — virtual environments, `conda`, and pinned dependencies.
-- [ ] **6. A reproducible analysis project** — project structure, notebooks vs. scripts, and making your results re-runnable.
-- [ ] **7. Making your code installable** — packaging a small Python module so someone else can use it.
-- [ ] **8. Working on a remote machine** — SSH, `tmux`, moving files, and running jobs on a cluster.
-- [ ] **9. Your GitHub profile as a CV** — READMEs, pinned repositories, and what a hiring manager sees in ninety seconds.
+- **2. The file too big for Excel** — pipes, globs, and `grep`, on a file your spreadsheet refuses to open.
+- **3. Redesign your website without fear** — branches, undoing things, and getting back a file you deleted on purpose.
+- **4. Fix something on this site** — your first pull request, reviewed by a real person, on a repository other people read.
+- **5. Make a stranger's code run** — virtual environments and pinned dependencies, proven by deleting yours and rebuilding it.
+- **6. One command from raw data to figure** — project structure, notebooks vs. scripts, and never touching `data/raw/`.
+- **7. The function you keep copy-pasting** — packaging a helper you already wrote, until `pip install` works for someone else.
+- **8. Run something longer than your laptop's battery** — SSH, `tmux`, moving data, and job arrays on a cluster.
+- **9. The ninety-second version of you** — profile README, pinned repositories, and what a hiring manager actually sees.
+
+Further out, not yet slotted into the order:
+
+- **Ask a question that gets answered** — reading a traceback, building a minimal example, and writing an issue nobody closes.
+- **Data that lies to you** — Excel and your gene names, encodings, dates, and joins that quietly drop rows.
+- **Tests that catch your mistakes** — `pytest`, and a green badge that re-checks your work on every push.
+- **Automate the thing you do every Monday** — a scheduled job that updates your site while you sleep.
+- **Figures people can read** — vector formats, colourblind-safe palettes, and figures built by a script you can re-run.
+- **A manuscript that survives four co-authors** — writing under version control, built to PDF automatically.
 
 Nothing here has a date attached. The list is public so you can tell whether it's worth
 bookmarking.
