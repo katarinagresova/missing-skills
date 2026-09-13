@@ -101,7 +101,7 @@ git log
 You get every commit you've ever made, newest first, each one looking roughly like this:
 
 ```
-commit 8f4d2a1c9b3e5f7a0d6c8b2e4f1a3c5d7e9b0f2a
+commit 7b28e4d9c3f5a1e806d2b4f7a9e1c3d5b8f0a2e6
 Author: Your Name <you@example.com>
 Date:   Mon Sep 8 14:22:31 2025 +0200
 
@@ -463,8 +463,8 @@ git diff main --stat
 ```
 
 ```
- style.css | 24 +++++++++++++++++++-----
- 1 file changed, 19 insertions(+), 5 deletions(-)
+ style.css | 23 ++++++++++++++++++++---
+ 1 file changed, 20 insertions(+), 3 deletions(-)
 ```
 
 This is the command to run before you merge anything, ever. It's the last cheap moment to
@@ -762,7 +762,7 @@ git log --oneline -- style.css
 9d3c7f1 Make links magenta
 c4e8a91 Add dark mode
 b72f3d5 Move colours into CSS variables
-a3f91c2 Add education section
+7b28e4d Add content and stylesheet
 ```
 
 Every commit that touched the file. Pick the one where it was last in a state you liked —
@@ -976,18 +976,24 @@ Your history now shows both lines of work joined back together.
 Your `redesign` branch has everything: variables, dark mode, the sharpened tagline, and the
 fix from `main`. Time to make it the real site.
 
-Check it once more, honestly:
+Check it once more, honestly, while you're still on the branch:
 
 ```bash
-git switch main
-git diff redesign --stat
+git diff main --stat
+```
+
+```
+ index.html |  2 +-
+ style.css  | 23 ++++++++++++++++++++---
+ 2 files changed, 21 insertions(+), 4 deletions(-)
 ```
 
 Read that list. Is every changed file one you meant to change?
 
-Then merge:
+Then go to `main` and merge:
 
 ```bash
+git switch main
 git merge redesign
 ```
 
@@ -995,9 +1001,11 @@ git merge redesign
 Updating 8f4d2a1..e5c9b3a
 Fast-forward
  index.html |  2 +-
- style.css  | 24 +++++++++++++++++++-----
- 2 files changed, 20 insertions(+), 6 deletions(-)
+ style.css  | 23 ++++++++++++++++++++---
+ 2 files changed, 21 insertions(+), 4 deletions(-)
 ```
+
+Same two files, same numbers as the preview — which is the point of running it.
 
 **"Fast-forward"** means there was nothing to reconcile — `main` hadn't moved since you last
 brought it into your branch, so git just slid the `main` label forward to where `redesign`
