@@ -658,6 +658,33 @@
   }
 }
 
+/* --- Screenshot ---------------------------------------------------------- */
+
+.md-typeset .ms-shot {
+  margin: 1.4rem 0;
+  text-align: left;
+}
+
+.md-typeset .ms-shot img {
+  display: block;
+  width: 100%;
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  border-radius: var(--ms-radius);
+}
+
+[data-md-color-scheme="default"] .md-typeset .ms-shot img[src$="#only-dark"],
+[data-md-color-scheme="slate"] .md-typeset .ms-shot img[src$="#only-light"] {
+  display: none;
+}
+
+.md-typeset .ms-shot > figcaption {
+  max-width: none;
+  margin: 0.7rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--md-default-fg-color--light);
+}
+
 /* --- Motion preferences -------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
