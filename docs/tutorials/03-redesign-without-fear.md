@@ -1316,8 +1316,21 @@ And the thing all of that adds up to: you can now try an idea on your own site w
 first deciding whether it's going to work. That's what makes the difference between a site
 you maintain and one you abandoned in August.
 
+---
+
+## Where to go next
+
+If you haven't done **[the file too big for Excel](02-too-big-for-excel.md)** yet, that's
+the other half of the terminal: pipes, `grep`, and getting a real answer out of 1.2 million
+rows of genetics data.
+
+Then **tutorial 4: fix something on this site** — the branch-and-merge you just did, but on
+a repository other people read, with a review step in the middle. It isn't written yet; the
+[roadmap](../index.md) has what's coming and in what order.
+
 !!! question "Where did you get stuck?"
 
     If any step here was confusing, wrong, or missing something —
-    [open an issue](https://github.com/katarinagresova/missing-skills/issues). Every one of
-    them tells me where a tutorial isn't doing its job.
+    [open an issue](https://github.com/katarinagresova/missing-skills/issues). The
+    "when things go wrong" section above is built entirely out of those reports, and it's
+    the most useful part of this page.

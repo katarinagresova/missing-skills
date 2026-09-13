@@ -655,6 +655,21 @@ Worth naming, because it's more than it felt like:
 
 And a public URL with your name on it, which is the point.
 
+---
+
+## Where to go next
+
+Two tutorials carry on from here, and you can do them in either order.
+
+**[The file too big for Excel](02-too-big-for-excel.md)** takes the terminal you've just
+met and points it at 1.2 million rows of real human genetics data — a file a spreadsheet
+physically cannot open — and ends with a second repository on your account.
+
+**[Redesign your website without fear](03-redesign-without-fear.md)** comes back to this
+site. Branches, so you can try an idea without committing to it, and five ways to undo, so
+that "I've broken it" stops being a reason not to touch the page. If you already want to
+change something here and are nervous about it, go there first.
+
 !!! question "Where did you get stuck?"
 
     If any step here was confusing, wrong, or missing something —

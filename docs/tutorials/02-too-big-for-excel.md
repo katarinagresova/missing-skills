@@ -1047,6 +1047,18 @@ And the tools worth meeting next, when you hit their specific wall:
 And a public repository showing you can take a file that defeats a spreadsheet and get a
 real answer out of it in seven seconds.
 
+---
+
+## Where to go next
+
+**[Redesign your website without fear](03-redesign-without-fear.md)** goes back to the site
+from tutorial 1 and makes it safe to change: branches, merge conflicts, and five ways to
+undo — including a proper look at the `git reset --soft` you met above while rescuing a
+commit that should never have happened.
+
+After that, [tutorial 4](../index.md) is your first pull request on a repository other
+people read.
+
 !!! question "Where did you get stuck?"
 
     If any step here was confusing, wrong, or missing something —
