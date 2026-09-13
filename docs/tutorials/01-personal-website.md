@@ -28,8 +28,8 @@ change at 11pm the night before an application deadline.
 
     Because generators hide the raw thing, and the raw thing is what you need to
     understand. Once you've written HTML by hand, a generator is a convenience. If you
-    start with the generator, it's magic — and when it breaks, you're stuck. There's a
-    later tutorial on switching to a generator once you want one.
+    start with the generator, it's magic — and when it breaks, you're stuck. Switching to
+    one later is easy; starting there and working backwards is not.
 
 ---
 
