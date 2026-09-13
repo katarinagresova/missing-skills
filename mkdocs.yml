@@ -37,6 +37,7 @@ nav:
   - Home: index.md
   - Tutorials:
       - 1. Your personal website: tutorials/01-personal-website.md
+      - 2. The file too big for Excel: tutorials/02-too-big-for-excel.md
 
 markdown_extensions:
   - admonition

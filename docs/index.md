@@ -32,11 +32,15 @@ a tutorial skips something, that's usually on purpose.
     Get something of yours live on the internet in the first twenty minutes, then learn
     git, the shell, and HTML by improving it.
 
+-   :material-console: **[2. The file too big for Excel](tutorials/02-too-big-for-excel.md)**
+
+    Pipes, globs, and `grep`, on 1.2 million rows of real human genetics data — more
+    than a spreadsheet can physically hold.
+
 </div>
 
 Planned, in roughly this order:
 
-- **2. The file too big for Excel** — pipes, globs, and `grep`, on a file your spreadsheet refuses to open.
 - **3. Redesign your website without fear** — branches, undoing things, and getting back a file you deleted on purpose.
 - **4. Fix something on this site** — your first pull request, reviewed by a real person, on a repository other people read.
 - **5. Make a stranger's code run** — virtual environments and pinned dependencies, proven by deleting yours and rebuilding it.
