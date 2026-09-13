@@ -2,7 +2,7 @@
 
 The computational skills nobody taught you in your science degree.
 
-**Site:** https://katarinagresova.github.io/missing-skills/
+**Site:** https://katarinagresova.com/missing-skills/
 
 Project-based tutorials for people finishing science degrees who can write analysis code
 but were never taught git, the shell, or how to make their work visible to other people.
@@ -42,6 +42,14 @@ Adding a tutorial: create `docs/tutorials/0N-slug.md` and add it to the `nav:` b
 
 Pushing to `main` builds the site and publishes it to GitHub Pages. Repository settings →
 Pages → Source must be set to **GitHub Actions**.
+
+The site is served from `katarinagresova.com/missing-skills/`. That domain is *not*
+configured here and this repo must not get a `CNAME` file of its own — the domain belongs
+to the user site, [katarinagresova.github.io](https://github.com/katarinagresova/katarinagresova.github.io),
+and GitHub serves every project page underneath it automatically. The old
+`katarinagresova.github.io/missing-skills/` address still works and redirects. The one
+thing that does live here is `site_url:` in `mkdocs.yml`, which MkDocs uses for the
+canonical `<link>` tags and `sitemap.xml`; if the domain ever changes, change it there.
 
 ## License
 

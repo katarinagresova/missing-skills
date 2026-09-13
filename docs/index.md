@@ -141,7 +141,7 @@ bookmarking.
 
 <div class="ms-author__text" markdown>
 
-I'm [Katarina Grešová](https://katarinagresova.github.io/), and I work on machine
+I'm [Katarina Grešová](https://katarinagresova.com/), and I work on machine
 learning for genomics at the Max Delbrück Center in Berlin. I arrived at biology sideways:
 a computer science degree first, then a few years writing software for a living, then a
 master's in bioinformatics and a PhD on how small RNAs pick their targets.

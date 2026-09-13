@@ -23,18 +23,20 @@ change at 11pm the night before an application deadline.
 
 <figure class="ms-shot" markdown>
 
-![Screenshot of katarinagresova.github.io: a name in large type, the line "Machine
+![Screenshot of katarinagresova.com: a name in large type, the line "Machine
 learning for biology, built to be reused", three short paragraphs of bio, a photo, and
 a row of links to email, GitHub, Google Scholar, ORCID and LinkedIn.](../assets/tutorial-01-example-site-light.webp#only-light)
-![Screenshot of katarinagresova.github.io: a name in large type, the line "Machine
+![Screenshot of katarinagresova.com: a name in large type, the line "Machine
 learning for biology, built to be reused", three short paragraphs of bio, a photo, and
 a row of links to email, GitHub, Google Scholar, ORCID and LinkedIn.](../assets/tutorial-01-example-site-dark.webp#only-dark)
 
 <figcaption markdown>
-My own page at [katarinagresova.github.io](https://katarinagresova.github.io/) — the same
-GitHub Pages setup you'll have running in twenty minutes, with a lot of small changes
-layered on since. Yours will start plainer than this, and that's the point: plain and live
-beats elaborate and unpublished.
+My own page at [katarinagresova.com](https://katarinagresova.com/) — the same GitHub Pages
+setup you'll have running in twenty minutes, with a lot of small changes layered on since.
+It started life at `katarinagresova.github.io`, exactly where yours will start; the custom
+domain came years later and is an afternoon's work whenever you want it ([§8](#8-going-further)).
+Yours will start plainer than this, and that's the point: plain and live beats elaborate
+and unpublished.
 </figcaption>
 
 </figure>
@@ -778,8 +780,13 @@ Optional, in increasing order of effort:
   you can give people that always has the current version.
 - **More pages.** `projects.html` next to `index.html` is reachable at
   `your-username.github.io/projects.html`. Link between them.
-- **A custom domain.** Buy `yourname.com`, point it at GitHub Pages in Settings → Pages.
-  Around €10–15 a year, and it makes a noticeable difference to how a link reads.
+- **A custom domain.** Buy `yourname.com` and put it in Settings → Pages → Custom domain.
+  At the registrar you point four `A` records at GitHub's addresses and a `www` `CNAME` at
+  `your-username.github.io`; GitHub's own page lists the addresses and issues the HTTPS
+  certificate for you. Around €10–15 a year, and it makes a noticeable difference to how a
+  link reads. Nothing breaks when you do it: the old address redirects to the new one, and
+  every project page follows, so `your-username.github.io/thesis-code/` starts landing on
+  `yourname.com/thesis-code/`.
 - **A static site generator.** When you have more than four or five pages, copying the same
   header into each one gets old. That's the moment to switch — and the moment it'll make
   sense, which is exactly why we didn't start there.

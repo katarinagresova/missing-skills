@@ -1,6 +1,6 @@
 site_name: The Missing Skills
 site_description: The computational skills nobody taught you in your science degree.
-site_url: https://katarinagresova.github.io/missing-skills/
+site_url: https://katarinagresova.com/missing-skills/
 repo_url: https://github.com/katarinagresova/missing-skills
 repo_name: missing-skills
 edit_uri: edit/main/docs/
@@ -79,7 +79,7 @@ extra_javascript:
 extra:
   social:
     - icon: material/web
-      link: https://katarinagresova.github.io/
+      link: https://katarinagresova.com/
       name: Katarina Grešová's website
     - icon: fontawesome/brands/github
       link: https://github.com/katarinagresova
