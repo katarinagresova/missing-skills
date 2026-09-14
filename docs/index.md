@@ -187,7 +187,7 @@ The tutorials started as live sessions, and they still work best that way.
 </div>
 
 Either way, email me at
-[katarina.gresova@mdc-berlin.de](mailto:katarina.gresova@mdc-berlin.de). It helps if you say
+[contact@katarinagresova.com](mailto:contact@katarinagresova.com). It helps if you say
 who the audience is and what you'd like them to be able to do afterwards.
 { .ms-offer__foot }
 
